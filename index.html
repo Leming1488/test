@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS 301 Redirect Test</title>
+</head>
+<body>
+  <h1>JS Script 301 Redirect Test</h1>
+  <button id="loadScriptBtn">Load Script with 301 Redirect</button>
+
+  <script>
+    function loadScript(src) {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = () => console.log(`Script loaded from: ${src}`);
+      script.onerror = () => console.error(`Failed to load script: ${src}`);
+      document.head.appendChild(script);
+    }
+
+    document.getElementById('loadScriptBtn').addEventListener('click', () => {
+      // Укажите здесь URL с 301 редиректом на ваш тестовый сервер
+      const scriptUrl = 'https://your-username.github.io/js-redirect-test/redirect-me.js';
+      loadScript(scriptUrl);
+    });
+  </script>
+</body>
+</html>
